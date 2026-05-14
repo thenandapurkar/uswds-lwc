@@ -4,6 +4,26 @@
 
 Each LWC maps directly to a USWDS component — same visual output, same accessibility patterns, zero external dependencies. Drop them into Experience Cloud and your site looks like a real government website.
 
+## What is USWDS?
+
+The [U.S. Web Design System (USWDS)](https://designsystem.digital.gov/) is the official design system of the federal government, created and maintained by the [General Services Administration (GSA)](https://www.gsa.gov/). It provides a library of open-source UI components, design tokens, and page templates that government agencies use to build their public-facing websites.
+
+You can explore the full system at **[designsystem.digital.gov](https://designsystem.digital.gov/)**.
+
+### Why it matters
+
+Government digital services serve everyone — including people with disabilities, limited English proficiency, low bandwidth, and older devices. USWDS exists to make sure those services are **consistent** and **accessible** by default:
+
+- **Consistency** — When every agency uses the same components, colors, typography, and interaction patterns, citizens get a familiar experience across all government websites. A form on a health benefits site works the same way as a form on a permit application. This reduces confusion, builds trust, and makes government feel like one coordinated service rather than hundreds of disconnected websites.
+
+- **Accessibility** — USWDS components are built to meet [Section 508](https://www.section508.gov/) and [WCAG 2.1 AA](https://www.w3.org/WAI/WCAG21/quickref/) accessibility standards out of the box. Proper color contrast, keyboard navigation, screen reader support, focus management, and semantic HTML are baked into every component. Agencies that adopt USWDS don't have to solve these problems from scratch — they inherit tested, compliant patterns.
+
+- **Trust** — Elements like the .gov banner and consistent visual language signal to the public that they are on a legitimate government website, not a phishing site or unofficial source.
+
+### Why convert USWDS to LWC?
+
+Many state and local government agencies use Salesforce Experience Cloud for their public-facing portals — permit applications, service requests, case status lookups, and more. Out of the box, Experience Cloud doesn't look like a government website. This project bridges that gap by converting USWDS components into native LWCs so that Salesforce-powered government portals look and feel like the rest of the agency's web presence.
+
 ## Install
 
 Click the button below to deploy all components directly into your Salesforce org:
