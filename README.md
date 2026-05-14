@@ -31,7 +31,7 @@ Many state and local government agencies use Salesforce Experience Cloud for the
 Click the button below to deploy all components directly into your Salesforce org:
 
 <a href="https://githubsfdeploy.herokuapp.com?owner=thenandapurkar&repo=uswds-lwc&ref=main">
-  <img alt="Deploy to Salesforce" src="./deploy-button.svg">
+  <img alt="Deploy to Salesforce" src="https://raw.githubusercontent.com/afawcett/githubsfdeploy/master/deploy.png">
 </a>
 
 ### Manual Install
