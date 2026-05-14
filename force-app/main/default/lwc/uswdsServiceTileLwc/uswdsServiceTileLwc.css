@@ -1,0 +1,89 @@
+/* Reusable USWDS Service Tile — based on usa-card pattern */
+:host {
+    display: block;
+    font-family: 'Public Sans', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
+}
+
+.service-tile {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 16px;
+    padding: 32px 16px 24px;
+    background: #ffffff;
+    border: 1px solid #dfe1e2;
+    border-radius: 8px;
+    text-decoration: none;
+    color: #1b1b1b;
+    cursor: pointer;
+    text-align: center;
+    position: relative;
+    transition: box-shadow 0.2s ease, border-color 0.2s ease, transform 0.2s ease;
+}
+
+.service-tile:hover {
+    border-color: #005ea2;
+    box-shadow: 0 4px 16px 0 rgba(0, 94, 162, 0.15);
+    transform: translateY(-3px);
+    text-decoration: none;
+}
+
+.service-tile:hover .tile-icon-container {
+    background: #005ea2;
+    color: #ffffff;
+}
+
+.service-tile:focus {
+    outline: 3px solid #005ea2;
+    outline-offset: 2px;
+}
+
+.service-tile:active {
+    transform: translateY(0);
+    box-shadow: 0 1px 4px 0 rgba(0, 0, 0, 0.1);
+}
+
+/* Icon circle — USWDS primary palette */
+.tile-icon-container {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 56px;
+    height: 56px;
+    border-radius: 50%;
+    background: #d9e8f6;
+    color: #005ea2;
+    transition: background 0.2s ease, color 0.2s ease;
+}
+
+.tile-icon-svg {
+    width: 28px;
+    height: 28px;
+}
+
+.tile-label {
+    font-size: 0.93rem;
+    font-weight: 600;
+    line-height: 1.35;
+    color: #1b1b1b;
+}
+
+/* Compact variant — smaller tile for denser grids */
+.service-tile--compact {
+    padding: 24px 12px 20px;
+    gap: 12px;
+}
+
+.service-tile--compact .tile-icon-container {
+    width: 44px;
+    height: 44px;
+}
+
+.service-tile--compact .tile-icon-svg {
+    width: 22px;
+    height: 22px;
+}
+
+.service-tile--compact .tile-label {
+    font-size: 0.87rem;
+}

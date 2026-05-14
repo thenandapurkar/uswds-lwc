@@ -1,0 +1,57 @@
+/* USWDS Summary Box — matches uswds-tailwind.com/components/summary-box/ */
+:host {
+    display: block;
+    font-family: 'Public Sans', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
+    color: #1b1b1b;
+}
+
+.summary-box {
+    border: 1px solid;
+    border-radius: 4px;
+    padding: 24px;
+}
+
+/* Cyan — default USWDS variant */
+.summary-box--cyan {
+    background-color: #e7f6f8;
+    border-color: #99deea;
+}
+
+/* Green */
+.summary-box--green {
+    background-color: #ecf3ec;
+    border-color: #70e17b;
+}
+
+/* Purple */
+.summary-box--purple {
+    background-color: #f0e7f6;
+    border-color: #b8a2ce;
+}
+
+.summary-heading {
+    font-size: 1.13rem;
+    font-weight: 700;
+    margin: 0 0 8px 0;
+    line-height: 1.15;
+    color: #1b1b1b;
+}
+
+.summary-body {
+    font-size: 1rem;
+    line-height: 1.5;
+    color: #1b1b1b;
+}
+
+.summary-list {
+    margin: 0;
+    padding-left: 20px;
+}
+
+.summary-list-item {
+    margin-bottom: 4px;
+}
+
+.summary-list-item:last-child {
+    margin-bottom: 0;
+}

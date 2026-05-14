@@ -1,0 +1,41 @@
+<template>
+    <div class={indicatorClass} aria-label="Progress">
+        <!-- Segments -->
+        <ol class="step-segments">
+            <template for:each={steps} for:item="step">
+                <li key={step.id} class={step.segmentClass}>
+                    <template lwc:if={showCounters}>
+                        <span class={step.counterClass}>
+                            <span class="sr-only">Step </span>{step.number}
+                        </span>
+                        <span class={step.connectorClass}></span>
+                    </template>
+                    <template lwc:else>
+                        <span class={step.barClass}></span>
+                    </template>
+                    <span class={step.labelClass}>
+                        {step.label}
+                        <template lwc:if={step.isComplete}>
+                            <span class="sr-only">completed</span>
+                        </template>
+                        <template lwc:if={step.isCurrent}>
+                            <span class="sr-only">current</span>
+                        </template>
+                    </span>
+                </li>
+            </template>
+        </ol>
+
+        <!-- Heading -->
+        <div class="step-heading">
+            <h2 class="step-heading-text">
+                <span class="step-heading-counter">
+                    <span class="sr-only">Step </span>
+                    <span class="current-step">{currentStep}</span>
+                    <span class="total-steps"> of {totalSteps}</span>
+                </span>
+                {currentLabel}
+            </h2>
+        </div>
+    </div>
+</template>

@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<LightningComponentBundle xmlns="http://soap.sforce.com/2006/04/metadata">
+    <apiVersion>62.0</apiVersion>
+    <isExposed>true</isExposed>
+    <masterLabel>USWDS Emergency Banner LWC</masterLabel>
+    <description>USWDS-styled site alert banner. Toggles between emergency (red) and all-clear (info blue) states with configurable height.</description>
+    <targets>
+        <target>lightning__AppPage</target>
+        <target>lightning__RecordPage</target>
+        <target>lightning__HomePage</target>
+        <target>lightningCommunity__Page</target>
+        <target>lightningCommunity__Default</target>
+    </targets>
+    <targetConfigs>
+        <targetConfig targets="lightningCommunity__Default">
+            <property name="heading" type="String" label="Banner Heading" default="No active emergencies" description="Primary text shown in the banner" />
+            <property name="message" type="String" label="Banner Message" default="" description="Optional secondary message with details" />
+            <property name="isEmergency" type="Boolean" label="Emergency Active?" default="false" description="When true, banner shows in emergency red style" />
+            <property name="height" type="String" label="Height (px)" default="" description="Optional minimum height in pixels (e.g. 60)" />
+        </targetConfig>
+    </targetConfigs>
+</LightningComponentBundle>

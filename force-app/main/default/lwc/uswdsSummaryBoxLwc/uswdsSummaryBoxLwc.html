@@ -1,0 +1,12 @@
+<template>
+    <div class={boxClass} role="region" aria-labelledby="summary-box-heading">
+        <h3 class="summary-heading" id="summary-box-heading">{heading}</h3>
+        <div class="summary-body">
+            <ul class="summary-list">
+                <template for:each={bulletItems} for:item="item">
+                    <li key={item.id} class="summary-list-item">{item.text}</li>
+                </template>
+            </ul>
+        </div>
+    </div>
+</template>

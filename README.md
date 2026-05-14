@@ -24,6 +24,8 @@ Government digital services serve everyone — including people with disabilitie
 
 Many state and local government agencies use Salesforce Experience Cloud for their public-facing portals — permit applications, service requests, case status lookups, and more. Out of the box, Experience Cloud doesn't look like a government website. This project bridges that gap by converting USWDS components into native LWCs so that Salesforce-powered government portals look and feel like the rest of the agency's web presence.
 
+---
+
 ## Install
 
 Click the button below to deploy all components directly into your Salesforce org:
@@ -40,6 +42,8 @@ Click the button below to deploy all components directly into your Salesforce or
    sf project deploy start --source-dir force-app
    ```
 3. In Experience Cloud Builder, drag the components onto your pages
+
+---
 
 ## Components
 
@@ -67,6 +71,156 @@ The official U.S. government website identification banner. This is the gray bar
 
 <!-- Or start expanded -->
 <c-uswds-banner-lwc expanded></c-uswds-banner-lwc>
+```
+
+---
+
+### uswdsEmergencyBannerLwc
+
+**USWDS Original:** [Site Alert](https://designsystem.digital.gov/components/site-alert/)
+
+A full-width site alert banner that toggles between an emergency state (dark red/orange) and an informational all-clear state (light cyan). Use it to communicate urgent information or confirm that there are no active alerts.
+
+**Where to use:** Below the banner at the top of the page, or anywhere you need to display site-wide alerts.
+
+**How to use:**
+1. In Experience Cloud Builder, drag `USWDS Emergency Banner LWC` onto your page
+2. Configure the heading, message, and emergency state in the component properties
+
+**Properties:**
+
+| Property | Type | Default | Description |
+|----------|------|---------|-------------|
+| `heading` | String | `"No active emergencies"` | Primary text shown in the banner |
+| `message` | String | `""` | Optional secondary message with details |
+| `isEmergency` | Boolean | `false` | When `true`, banner switches to emergency red style |
+| `height` | String | `""` | Optional minimum height in pixels (e.g. `"60"`) |
+
+**Example:**
+```html
+<!-- All-clear state -->
+<c-uswds-emergency-banner-lwc
+    heading="No active emergencies"
+    message="All city services are operating normally.">
+</c-uswds-emergency-banner-lwc>
+
+<!-- Emergency state -->
+<c-uswds-emergency-banner-lwc
+    heading="Severe weather warning"
+    message="A winter storm warning is in effect. Non-essential city offices are closed."
+    is-emergency>
+</c-uswds-emergency-banner-lwc>
+```
+
+---
+
+### uswdsStepIndicatorLwc
+
+**USWDS Original:** [Step Indicator](https://designsystem.digital.gov/components/step-indicator/)
+
+A multi-step progress indicator that shows where a user is in a sequential process. Supports 4 visual variants: default (bar segments), centered, counters (numbered circles with connectors), and small counters. Works in both Experience Cloud pages and Flow screens.
+
+**Where to use:** Top of any multi-step form, application, or wizard — permit applications, intake forms, service requests.
+
+**How to use:**
+1. In Experience Cloud Builder or a Flow Screen, drag `USWDS Step Indicator LWC` onto your page
+2. Set the step labels (separated by semicolons) and current step number
+
+**Properties:**
+
+| Property | Type | Default | Description |
+|----------|------|---------|-------------|
+| `variant` | String | `"default"` | Visual style: `default`, `centered`, `counters`, or `counters-sm` |
+| `currentStep` | Integer | `1` | Which step is currently active (1-based) |
+| `labels` | String | `"Personal information; Household status; Supporting documents; Signature; Review and submit"` | Step labels separated by semicolons |
+
+**Example:**
+```html
+<!-- Default bar style -->
+<c-uswds-step-indicator-lwc
+    variant="default"
+    current-step="3"
+    labels="Applicant Info; Property Details; Upload Documents; Review; Submit">
+</c-uswds-step-indicator-lwc>
+
+<!-- Numbered counters -->
+<c-uswds-step-indicator-lwc
+    variant="counters"
+    current-step="2"
+    labels="Create Account; Verify Identity; Complete Application">
+</c-uswds-step-indicator-lwc>
+```
+
+---
+
+### uswdsSummaryBoxLwc
+
+**USWDS Original:** [Summary Box](https://designsystem.digital.gov/components/summary-box/)
+
+A bordered box that highlights 3–5 key takeaways or important information on a page. Available in three color variants: cyan (default USWDS), green, and purple.
+
+**Where to use:** Top of a page or section to call out key information — eligibility requirements, deadlines, important instructions.
+
+**How to use:**
+1. In Experience Cloud Builder, drag `USWDS Summary Box LWC` onto your page
+2. Set the heading and bullet points (separated by semicolons)
+
+**Properties:**
+
+| Property | Type | Default | Description |
+|----------|------|---------|-------------|
+| `heading` | String | `"Key information"` | Heading text for the box |
+| `variant` | String | `"cyan"` | Color theme: `cyan`, `green`, or `purple` |
+| `items` | String | `""` | Bullet points separated by semicolons |
+
+**Example:**
+```html
+<c-uswds-summary-box-lwc
+    heading="Before you apply"
+    variant="cyan"
+    items="You must be a resident of the state; Applications are reviewed within 10 business days; You will need a valid government-issued ID; Late applications will not be accepted">
+</c-uswds-summary-box-lwc>
+```
+
+---
+
+### uswdsServiceTileLwc
+
+**USWDS Original:** Based on the [Card](https://designsystem.digital.gov/components/card/) pattern
+
+A clickable service tile with an icon, label, and link — designed for services grids on government homepages. Includes 16 built-in government service icons and a compact variant for denser layouts.
+
+**Where to use:** Services/departments grid on a homepage or services directory page.
+
+**How to use:**
+1. In Experience Cloud Builder, drag `USWDS Service Tile LWC` onto your page
+2. Configure the label, URL, and icon for each tile
+
+**Properties:**
+
+| Property | Type | Default | Description |
+|----------|------|---------|-------------|
+| `label` | String | `""` | Service name displayed below the icon |
+| `url` | String | `"#"` | URL the tile links to |
+| `icon` | String | `"service"` | Icon key (see list below) |
+| `compact` | Boolean | `false` | Smaller tile for denser grids |
+
+**Available icons:** `report`, `service`, `application`, `complaint`, `permit`, `library`, `water`, `parking`, `council`, `building`, `parks`, `animal`, `payment`, `health`, `election`, `trash`
+
+**Example:**
+```html
+<c-uswds-service-tile-lwc
+    label="Report a Problem"
+    url="/report"
+    icon="report">
+</c-uswds-service-tile-lwc>
+
+<c-uswds-service-tile-lwc
+    label="Pay Utility Bill"
+    url="/payments"
+    icon="payment"
+    compact>
+</c-uswds-service-tile-lwc>
 ```
 
 ---
@@ -121,14 +275,15 @@ connectedCallback() {
 | USWDS Component | LWC Name | Status |
 |-----------------|----------|--------|
 | [Banner](https://designsystem.digital.gov/components/banner/) | `uswdsBannerLwc` | Done |
+| [Site Alert](https://designsystem.digital.gov/components/site-alert/) | `uswdsEmergencyBannerLwc` | Done |
+| [Step Indicator](https://designsystem.digital.gov/components/step-indicator/) | `uswdsStepIndicatorLwc` | Done |
+| [Summary Box](https://designsystem.digital.gov/components/summary-box/) | `uswdsSummaryBoxLwc` | Done |
+| [Card](https://designsystem.digital.gov/components/card/) | `uswdsServiceTileLwc` | Done |
 | [Header](https://designsystem.digital.gov/components/header/) | — | Planned |
 | [Footer](https://designsystem.digital.gov/components/footer/) | — | Planned |
 | [Identifier](https://designsystem.digital.gov/components/identifier/) | — | Planned |
 | [Side Navigation](https://designsystem.digital.gov/components/side-navigation/) | — | Planned |
-| [Card](https://designsystem.digital.gov/components/card/) | — | Planned |
 | [Alert](https://designsystem.digital.gov/components/alert/) | — | Planned |
-| [Step Indicator](https://designsystem.digital.gov/components/step-indicator/) | — | Planned |
-| [Summary Box](https://designsystem.digital.gov/components/summary-box/) | — | Planned |
 
 ---
 
@@ -138,10 +293,15 @@ connectedCallback() {
 uswds-lwc/
 ├── force-app/main/default/
 │   ├── lwc/
-│   │   ├── uswdsBannerLwc/        ← .gov identification banner
-│   │   └── uswdsIconsLwc/         ← Shared SVG icon paths
+│   │   ├── uswdsBannerLwc/            ← .gov identification banner
+│   │   ├── uswdsEmergencyBannerLwc/   ← Site alert (emergency/info)
+│   │   ├── uswdsIconsLwc/             ← Shared SVG icon paths
+│   │   ├── uswdsServiceTileLwc/       ← Clickable service card with icon
+│   │   ├── uswdsStepIndicatorLwc/     ← Multi-step progress indicator
+│   │   └── uswdsSummaryBoxLwc/        ← Key information highlight box
 │   └── staticresources/
-│       └── uswdsTokens.css         ← USWDS design tokens
+│       └── uswdsTokens.css             ← USWDS design tokens
+├── sfdx-project.json
 └── README.md
 ```
 
