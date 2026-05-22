@@ -3,7 +3,7 @@
     <apiVersion>62.0</apiVersion>
     <isExposed>true</isExposed>
     <masterLabel>USWDS Summary Box LWC</masterLabel>
-    <description>USWDS Summary Box with color variants. Drop a Rich Text component inside to format content with bullets, bold, and sizing.</description>
+    <description>USWDS Summary Box with rich text editing. Toggle between edit (with toolbar) and display mode.</description>
     <targets>
         <target>lightning__AppPage</target>
         <target>lightning__RecordPage</target>
@@ -15,7 +15,9 @@
         <targetConfig targets="lightningCommunity__Default">
             <property name="heading" type="String" label="Heading" default="Key information" />
             <property name="variant" type="String" label="Color Variant" datasource="cyan,green,purple" default="cyan" />
-            <property name="items" type="String" label="Bullet Points (legacy - use Rich Text instead)" default="" />
+            <property name="items" type="String" label="Bullet Points (legacy - use Rich Content instead)" default="" />
+            <property name="richContent" type="String" label="Rich Content (HTML)" default="" />
+            <property name="mode" type="String" label="Mode" datasource="edit,display" default="edit" />
         </targetConfig>
     </targetConfigs>
 </LightningComponentBundle>
