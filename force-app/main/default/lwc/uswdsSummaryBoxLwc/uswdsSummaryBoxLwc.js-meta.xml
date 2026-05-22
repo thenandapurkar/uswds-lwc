@@ -3,7 +3,7 @@
     <apiVersion>62.0</apiVersion>
     <isExposed>true</isExposed>
     <masterLabel>USWDS Summary Box LWC</masterLabel>
-    <description>USWDS Summary Box with cyan, green, and purple color variants. Use to highlight 3-5 key points on a page.</description>
+    <description>USWDS Summary Box with color variants. Drop a Rich Text component inside to format content with bullets, bold, and sizing.</description>
     <targets>
         <target>lightning__AppPage</target>
         <target>lightning__RecordPage</target>
@@ -15,7 +15,7 @@
         <targetConfig targets="lightningCommunity__Default">
             <property name="heading" type="String" label="Heading" default="Key information" />
             <property name="variant" type="String" label="Color Variant" datasource="cyan,green,purple" default="cyan" />
-            <property name="items" type="String" label="Bullet Points (separate with ;)" default="" />
+            <property name="items" type="String" label="Bullet Points (legacy - use Rich Text instead)" default="" />
         </targetConfig>
     </targetConfigs>
 </LightningComponentBundle>
