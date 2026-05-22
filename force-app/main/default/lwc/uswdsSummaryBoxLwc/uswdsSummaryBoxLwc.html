@@ -2,22 +2,10 @@
     <div class={boxClass} role="region" aria-labelledby="summary-box-heading">
         <h3 class="summary-heading" id="summary-box-heading">{heading}</h3>
         <div class="summary-body">
-            <template lwc:if={isEditMode}>
-                <!-- Rich text editor with formatting toolbar -->
-                <lightning-input-rich-text
-                    value={richTextValue}
-                    onchange={handleRichTextChange}
-                    variant="bottom-toolbar"
-                    placeholder="Enter formatted content here...">
-                </lightning-input-rich-text>
-            </template>
-            <template lwc:else>
-                <!-- Display mode: rendered HTML without toolbar -->
-                <lightning-formatted-rich-text
-                    value={richTextValue}
-                    disable-linkify>
-                </lightning-formatted-rich-text>
-            </template>
+            <lightning-formatted-rich-text
+                value={displayValue}
+                disable-linkify>
+            </lightning-formatted-rich-text>
         </div>
     </div>
 </template>

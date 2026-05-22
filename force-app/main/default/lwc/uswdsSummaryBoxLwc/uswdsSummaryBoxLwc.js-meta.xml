@@ -3,7 +3,7 @@
     <apiVersion>62.0</apiVersion>
     <isExposed>true</isExposed>
     <masterLabel>USWDS Summary Box LWC</masterLabel>
-    <description>USWDS Summary Box with rich text editing. Toggle between edit (with toolbar) and display mode.</description>
+    <description>USWDS Summary Box. Use the Content (HTML) property for full formatting control (bold, bullets, sizing).</description>
     <targets>
         <target>lightning__AppPage</target>
         <target>lightning__RecordPage</target>
@@ -15,9 +15,8 @@
         <targetConfig targets="lightningCommunity__Default">
             <property name="heading" type="String" label="Heading" default="Key information" />
             <property name="variant" type="String" label="Color Variant" datasource="cyan,green,purple" default="cyan" />
-            <property name="items" type="String" label="Bullet Points (legacy - use Rich Content instead)" default="" />
-            <property name="richContent" type="String" label="Rich Content (HTML)" default="" />
-            <property name="mode" type="String" label="Mode" datasource="edit,display" default="edit" />
+            <property name="items" type="String" label="Bullet Points (legacy, semicolon-separated)" default="" />
+            <property name="richContent" type="String" label="Content (HTML)" default="&lt;ul&gt;&lt;li&gt;Check your bin for tags&lt;/li&gt;&lt;li&gt;Residential properties only&lt;/li&gt;&lt;/ul&gt;" />
         </targetConfig>
     </targetConfigs>
 </LightningComponentBundle>

@@ -6,7 +6,6 @@ export default class UswdsSummaryBoxLwc extends LightningElement {
     @api heading = 'Key information';
     @api variant = 'cyan';
     @api items = '';
-    @api mode = 'edit';
     @api richContent = '';
 
     get boxClass() {
@@ -14,12 +13,8 @@ export default class UswdsSummaryBoxLwc extends LightningElement {
         return `summary-box summary-box--${v}`;
     }
 
-    get isEditMode() {
-        return this.mode === 'edit';
-    }
-
-    // Use richContent if set, otherwise convert legacy items to HTML bullets
-    get richTextValue() {
+    // Use richContent if available, otherwise fall back to legacy items
+    get displayValue() {
         if (this.richContent) {
             return this.richContent;
         }
@@ -33,9 +28,5 @@ export default class UswdsSummaryBoxLwc extends LightningElement {
             return `<ul>${bullets}</ul>`;
         }
         return '';
-    }
-
-    handleRichTextChange(event) {
-        this.richContent = event.target.value;
     }
 }
